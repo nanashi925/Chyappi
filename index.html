@@ -3,160 +3,124 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>ばぶちゃんCodexガイド</title>
     <meta
       name="description"
-      content="ばぶちゃん向けに、Codexでできることとコマンドの使い方をやさしくまとめたガイドアプリでち。"
+      content="Codexの実力がひと目でわかる、動きつき・初心者向けのばぶちゃんガイドでち。"
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="ばぶちゃんCodexガイド" />
-    <meta
-      property="og:description"
-      content="Codexでなにができるかを、ばぶ語でやさしく学べるでち。"
-    />
+    <meta property="og:description" content="Codexでなにができるかを、動きつきで楽しく学べるでち。" />
     <meta property="og:image" content="./og-image.svg" />
     <meta property="og:site_name" content="ばぶちゃんCodexガイド" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ばぶちゃんCodexガイド" />
-    <meta
-      name="twitter:description"
-      content="初心者ばぶちゃん向けに、やさしく学べるCodex入門アプリでち。"
-    />
+    <meta name="twitter:description" content="初心者ばぶちゃん向けに、やさしく学べるCodex入門アプリでち。" />
     <meta name="twitter:image" content="./og-image.svg" />
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260221-3" />
   </head>
   <body>
+    <p class="reflect-banner">反映確認</p>
+    <div class="bg-orb orb-a" aria-hidden="true"></div>
+    <div class="bg-orb orb-b" aria-hidden="true"></div>
+
     <main class="container">
-      <header class="hero card">
-        <p class="chip">🍼 ばぶちゃん専用モード</p>
-        <h1>Codexって、なにができるの？</h1>
-        <p>
-          だいじょうぶでち。むずかしい言葉はできるだけやめて、<strong>「なにを押すと、なにが起きるか」</strong>まで書いたでち。
-          ぜんぶ同じ画面で見られるように、
-          <strong>「詳しい解説を見る」ボタン</strong>をつけたでち。
+      <header class="hero card reveal">
+        <p class="build-chip">Build: <strong>v2026.02.21-3</strong></p>
+        <p class="chip">🍼 ばぶちゃん専用・本気モード</p>
+        <h1>Codexの本気、ここで見せるでち。</h1>
+        <p class="hero-lead">
+          これはただの説明ページじゃないでち。<strong>動き・比較・体験</strong>で、
+          「なにができるか」「どう変わるか」を見せる自己アピール資料でち。
         </p>
+        <div class="typing-wrap">
+          <span class="typing-label">リアルなお願い例：</span>
+          <span id="typingText" class="typing-text" aria-live="polite"></span>
+        </div>
+        <p class="url-note">いま見てるURL: <code id="currentUrl">読み込み中...</code></p>
+        <button id="forceRefreshBtn" class="refresh-btn" type="button">Safari向け 反映リロード</button>
       </header>
 
-      <section class="card">
-        <h2>まず、Codexでできること</h2>
-        <ul class="soft-list">
-          <li><strong>コードを作る</strong>：お願いすると、新しいファイルや機能を作ってくれるでち。</li>
-          <li><strong>コードを直す</strong>：バグ（不具合）を見つけて、直し方まで提案してくれるでち。</li>
-          <li><strong>テストをする</strong>：ちゃんと動くかを確認するコマンドを実行してくれるでち。</li>
-          <li><strong>説明してくれる</strong>：むずかしい処理も、やさしい言葉で分解して教えてくれるでち。</li>
-          <li><strong>Gitの作業を手伝う</strong>：変更をまとめて、コミットやPR文まで作ってくれるでち。</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>お金がかかるかも？注意ポイント</h2>
-        <p>
-          ここは超だいじでち。<strong>ローカル（自分のPCだけ）で動くコマンドは、ふつう追加料金なし</strong>でち。
-          でも、外のサービスにアクセスすると料金が発生することがあるでち。
-        </p>
-        <ul class="soft-list">
-          <li>✅ <strong>基本無料寄り</strong>：ファイル操作、テスト、ローカルサーバー起動など。</li>
-          <li>⚠️ <strong>課金に注意</strong>：クラウドAPI呼び出し、外部AI API、CIの有料枠、デプロイ先の有料プラン。</li>
-          <li>⚠️ <strong>通信量に注意</strong>：大きな依存パッケージのDL、Dockerイメージ取得など。</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>コマンド図鑑（ばぶ語版）</h2>
-        <p class="tiny-note">※ 「課金注意」は一般的な目安でち。使うサービスの料金表は必ず確認してね。</p>
-
-        <div class="command-grid">
-          <article class="command-item">
-            <h3><code>pwd</code> <span class="free">ほぼ無料</span></h3>
-            <p>いま、どのフォルダにいるか教えてくれるでち。</p>
-            <details>
-              <summary>詳しい解説を見る</summary>
-              <p>なにが起きる？ → いまの作業場所の住所みたいな文字が出るでち。安全確認の最初の一歩でち。</p>
-            </details>
+      <section class="card reveal">
+        <h2>Codexを使うと、こう変わるでち</h2>
+        <div class="before-after">
+          <article class="pill-box before">
+            <h3>😵 ひとりでやる前</h3>
+            <ul>
+              <li>何から始めるか迷う</li>
+              <li>エラーが怖い</li>
+              <li>コマンドの意味が分からない</li>
+            </ul>
           </article>
-
-          <article class="command-item">
-            <h3><code>ls -la</code> <span class="free">ほぼ無料</span></h3>
-            <p>フォルダの中身を一覧表示するでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → ファイル名、作成者、サイズなどが見えるでち。隠しファイルも出るでち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>cat ファイル名</code> <span class="free">ほぼ無料</span></h3>
-            <p>ファイルの中身を読むでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → その場で文字が表示されるでち。読む専用で、勝手に書き換えないでち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>rg "文字"</code> <span class="free">ほぼ無料</span></h3>
-            <p>文字検索の高速版でち。どこに書いてあるか探せるでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → 一致した行とファイル名が一気に出るでち。修正箇所探しが速いでち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>git status</code> <span class="free">ほぼ無料</span></h3>
-            <p>どのファイルを変えたか確認するでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → 変更済み・未追跡ファイルが見えるでち。コミット前の見落とし防止でち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>git add .</code> / <code>git commit</code> <span class="free">ほぼ無料</span></h3>
-            <p>変更を保存（履歴化）するでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → 作業のスナップショットが残るでち。「いつ何をしたか」が追えるでち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>npm install</code> <span class="caution">通信量注意</span></h3>
-            <p>必要な道具（パッケージ）を入れるでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → 外からファイルを大量DLするでち。基本は無料でも通信量や時間がかかるでち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>npm run dev</code> <span class="free">ほぼ無料</span></h3>
-            <p>開発用の画面を立ち上げるでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → ブラウザでアプリを確認できるでち。見た目調整に必須でち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>npm test</code> / <code>pytest</code></h3>
-            <p>壊れてないか検査するでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → 自動チェックが走って、OK/NGを教えてくれるでち。品質アップでち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>curl URL</code> <span class="caution">API課金注意</span></h3>
-            <p>URLにアクセスして返事をもらうでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → サーバーの応答を取得するでち。有料APIのURLだと課金される場合があるでち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>docker pull</code> <span class="caution">通信量注意</span></h3>
-            <p>コンテナの土台イメージを取ってくるでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → 数百MB〜数GB取ることもあるでち。ネット制限があると注意でち。</p></details>
-          </article>
-
-          <article class="command-item">
-            <h3><code>openai / 各種AI API</code> <span class="caution">課金注意</span></h3>
-            <p>外部AIサービスを呼び出すでち。</p>
-            <details><summary>詳しい解説を見る</summary><p>なにが起きる？ → 使った分だけ従量課金になりやすいでち。無料枠や上限設定を先にするでち。</p></details>
+          <article class="pill-box after">
+            <h3>✨ Codexと一緒</h3>
+            <ul>
+              <li>手順を順番に案内してくれる</li>
+              <li>原因と直し方を提案してくれる</li>
+              <li>「このコマンドで何が起きるか」まで説明してくれる</li>
+            </ul>
           </article>
         </div>
       </section>
 
-      <section class="card">
-        <h2>リンクのサムネ（OGP）対策でち</h2>
+      <section class="card reveal">
+        <h2>実力デモ：タップで切り替え</h2>
+        <div class="tab-buttons" role="tablist" aria-label="Codex機能デモ">
+          <button class="tab-btn is-active" role="tab" aria-selected="true" data-target="build">つくる</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-target="fix">なおす</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-target="test">まもる</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-target="explain">おしえる</button>
+        </div>
+
+        <div class="tab-panels">
+          <article class="tab-panel is-active" id="build" role="tabpanel">
+            <h3>🛠️ つくる（生成）</h3>
+            <p>「ログイン画面を作って」で、画面・スタイル・基本動作までまとめて形にできるでち。</p>
+          </article>
+          <article class="tab-panel" id="fix" role="tabpanel">
+            <h3>🩹 なおす（修正）</h3>
+            <p>エラーログを読んで、原因候補→修正案→再確認の順で進めるから、迷子になりにくいでち。</p>
+          </article>
+          <article class="tab-panel" id="test" role="tabpanel">
+            <h3>🧪 まもる（検証）</h3>
+            <p>テスト実行で壊れてないかをチェック。直したあとも安心して前に進めるでち。</p>
+          </article>
+          <article class="tab-panel" id="explain" role="tabpanel">
+            <h3>📘 おしえる（解説）</h3>
+            <p>専門語をかみくだいて、「なにをしたら」「どうなるか」を初心者目線で説明できるでち。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card reveal">
+        <h2>コマンド図鑑（お金注意つき）</h2>
+        <p class="tiny-note">ボタンを押すと説明が開くでち。長文は必要なときだけ読めるでち。</p>
+        <div class="command-grid">
+          <article class="command-item"><h3><code>pwd</code> <span class="free">ほぼ無料</span></h3><p>今いる場所を表示するでち。</p><details><summary>詳しい解説を見る</summary><p>結果：作業中フォルダの場所が出る。迷子防止に最初に使うでち。</p></details></article>
+          <article class="command-item"><h3><code>ls -la</code> <span class="free">ほぼ無料</span></h3><p>中身一覧を見るでち。</p><details><summary>詳しい解説を見る</summary><p>結果：ファイル名・サイズ・隠しファイルまで確認できるでち。</p></details></article>
+          <article class="command-item"><h3><code>rg "文字"</code> <span class="free">ほぼ無料</span></h3><p>文字検索の高速版でち。</p><details><summary>詳しい解説を見る</summary><p>結果：どのファイルの何行にあるか一気に分かるでち。</p></details></article>
+          <article class="command-item"><h3><code>git status</code> <span class="free">ほぼ無料</span></h3><p>変更確認するでち。</p><details><summary>詳しい解説を見る</summary><p>結果：修正済み・未追跡ファイルが出る。コミット前の最終チェックでち。</p></details></article>
+          <article class="command-item"><h3><code>npm install</code> <span class="caution">通信量注意</span></h3><p>必要パッケージを入れるでち。</p><details><summary>詳しい解説を見る</summary><p>結果：外から道具をDL。無料でも通信量が増えることがあるでち。</p></details></article>
+          <article class="command-item"><h3><code>curl URL</code> <span class="caution">API課金注意</span></h3><p>URLから返事を受け取るでち。</p><details><summary>詳しい解説を見る</summary><p>結果：API応答が返る。有料API先だと利用料が発生することがあるでち。</p></details></article>
+          <article class="command-item"><h3><code>docker pull</code> <span class="caution">通信量注意</span></h3><p>コンテナ土台を取るでち。</p><details><summary>詳しい解説を見る</summary><p>結果：大容量DLになりやすい。ネット環境に注意でち。</p></details></article>
+          <article class="command-item"><h3><code>openai / AI API</code> <span class="caution">課金注意</span></h3><p>外部AIを呼ぶでち。</p><details><summary>詳しい解説を見る</summary><p>結果：使った量に応じて課金されることがある。上限設定が安心でち。</p></details></article>
+        </div>
+      </section>
+
+      <section class="card reveal">
+        <h2>リンクのサムネ（OGP）</h2>
         <p>
-          Discordなどでリンク貼ったときに画像つきカードを出すには、
-          <strong>OGPタグ</strong>と<strong>公開URLの画像</strong>が必要でち。
+          ここは<strong>次の指示待ち</strong>として準備だけ置いてあるでち。必要になったら、
+          その指示に合わせて最適化するでち。
         </p>
-        <ul class="soft-list">
-          <li>このアプリは <code>og:title</code> / <code>og:description</code> / <code>og:image</code> を設定したでち。</li>
-          <li>実際にサムネを出すには、Web公開して <code>https://...</code> の画像URLにするでち。</li>
-          <li>ローカルファイル（<code>file://</code>）のままだと、サムネが出ないことが多いでち。</li>
-        </ul>
       </section>
     </main>
+
+    <script src="script.js?v=20260221-3"></script>
   </body>
 </html>
